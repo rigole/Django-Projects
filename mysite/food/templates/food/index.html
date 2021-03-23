@@ -1,4 +1,8 @@
 <!-- Rendering the context in html -->
 {% for item in item_list %}
-    {{ item.id }} -- {{ item.item_name }}
+     <ul>
+         <li>
+             {{ item.id }} -- {{ item.item_name }}
+         </li>
+     </ul>
 {% endfor %}

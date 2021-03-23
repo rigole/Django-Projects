@@ -7,13 +7,13 @@ def index(request):
     item_list = Item.objects.all()
     #rendring an html file using template
 
-    template = loader.get_template('food/index.html')
+    #template = loader.get_template('food/index.html')
 
     # context here is used to pass database element to the template
     context= {
           'item_list': item_list,
     }
-    return HttpResponse(template.render(context,request))
+    return render(request,'food/index.html', context)
 
 def item (request):
     return HttpResponse('This s an Item view')
