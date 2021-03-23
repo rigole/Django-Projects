@@ -15,10 +15,13 @@ def index(request):
     }
     return render(request,'food/index.html', context)
 
+# view of the item
 def item (request):
     return HttpResponse('This s an Item view')
 
 def goal (request):
     return HttpResponse('<h1>I am on the way to success and I will be a Billionaire</h1>')
 
-
+# view to display item_id on click
+def id(request, item_id):
+    return HttpResponse("This is Item no id: %s" % item_id)
