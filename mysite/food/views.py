@@ -5,9 +5,13 @@ from django.template import  loader
 # Create your views here.
 def index(request):
     item_list = Item.objects.all()
-    template = loader.get_template('food/index.html')
-    context= {
+    #rendring an html file using template
 
+    template = loader.get_template('food/index.html')
+
+    # context here is used to pass database element to the template
+    context= {
+          'item_list': item_list,
     }
     return HttpResponse(template.render(context,request))
 

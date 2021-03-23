@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-      <h1>This is my first Django template</h1>
-</body>
-</html>
+<!-- Rendering the context in html -->
+{% for item in item_list %}
+    {{ item.id }} -- {{ item.item_name }}
+{% endfor %}
