@@ -24,4 +24,8 @@ def goal (request):
 
 # view to display item_id on click
 def id(request, item_id):
-    return HttpResponse("This is Item no id: %s" % item_id)
+    item = Item.objects.get(pk=item_id)
+    context = {
+        'item': item,
+    }
+    return render(request, 'food/details.html', context)
