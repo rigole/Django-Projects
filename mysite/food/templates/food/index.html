@@ -1,43 +1,23 @@
-{% load static %}
+{% extends 'food/base.html' %}
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'food/style.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
 </head>
 <body>
-
-    <nav class="navbar navbar-dark bg-dark">
-        <a href="#" class="navbar-brand">FoodApp</a>
-
-        <div class="navbar">
-            <a class="nav-item nav-link" href="#">Add Item</a>
-            <a class="nav-item nav-link" href="#">Delete Item</a>
-            <a class="nav-item nav-link" href="#">View Item</a>
-
-
-        </div>
-
-
-    </nav>
-
-
-
-
-
 <!-- Rendering the context in html -->
-{% for item in item_list %}
+  {% block body %}
+  {% for item in item_list %}
      <ul>
          <li>
-
              <a href="{% url 'food:id' item.id %}">  {{ item.id }} -- {{ item.item_name }} </a>
          </li>
      </ul>
-{% endfor %}
+   {% endfor %}
+  {% endblock %}
 </body>
 </html>
 
