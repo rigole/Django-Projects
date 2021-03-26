@@ -11,14 +11,32 @@
 <!-- Rendering the context in html -->
   {% block body %}
   {% for item in item_list %}
-     <ul>
+   <div class="row">
+       <div class="col-md-3 offset-md-2">
+           <img class="card" height="150px" src="{{ item.item_image }}" />
+       </div>
+       <div class="col-md-4">
+           <h3>{{ item.item_name }}</h3>
+           <h5>{{ item.item_desc }}</h5>
+           <h6>{{ item.item_price }} FCFA</h6>
+       </div>
+       <div class="col-md-2">
+
+       </div>
+
+   </div>
+
+
+
+  {% endfor %}
+  {% endblock %}
+</body>
+   <!--  <ul>
          <li>
              <a href="{% url 'food:id' item.id %}">  {{ item.id }} -- {{ item.item_name }} </a>
          </li>
-     </ul>
-   {% endfor %}
-  {% endblock %}
-</body>
+     </ul> -->
+
 </html>
 
 
