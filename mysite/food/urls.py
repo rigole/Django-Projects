@@ -8,5 +8,8 @@ urlpatterns = [
     path('goal',views.goal, name='goal'),
     #path for item
     path('<int:item_id>/',views.id,name='id'),
+    # add item formular path
+    path('add',views.create_item, name="create_item"),
+
 
 ]
