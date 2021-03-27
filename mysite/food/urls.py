@@ -10,6 +10,10 @@ urlpatterns = [
     path('<int:item_id>/',views.id,name='id'),
     # add item formular path
     path('add',views.create_item, name="create_item"),
+    # edit item path
+    path('update/<int:id>', views.update_item,name='update_item'),
+
+
 
 
 ]
