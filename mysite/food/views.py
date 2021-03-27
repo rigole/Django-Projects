@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from .forms import ItemForm
 from .models import Item
-from django.template import  loader
+from django.template import loader
 # Create your views here.
 def index(request):
     item_list = Item.objects.all()
@@ -40,4 +40,4 @@ def create_item(request):
         form.save()
         return redirect('food:index')
 
-    return render(request,'food/item-form',{'form':form})
+    return render(request,'food/item-form.html',{'form':form})
