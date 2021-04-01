@@ -2,9 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import RegisterForm
+
 # Create your views here
-
-
 
 def register(request):
     form = RegisterForm()
