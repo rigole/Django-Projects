@@ -7,7 +7,7 @@ urlpatterns = [
     path('item', views.item, name = 'item'),
     path('goal',views.goal, name='goal'),
     #path for item
-    path('<int:item_id>/',views.id,name='id'),
+    path('<int:pk>/',views.FoodDetail.as_view(),name='id'),
     # add item formular path
     path('add',views.create_item, name="create_item"),
     # edit item path
