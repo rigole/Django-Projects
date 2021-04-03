@@ -5,6 +5,7 @@ from .models import Item
 from django.views.generic.list import ListView
 from django.template import loader
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
 # Create your views here.
 def index(request):
     item_list = Item.objects.all()
@@ -47,9 +48,6 @@ class FoodDetail(DetailView):
     model = Item
     template_name = 'food/details.html'
 
-
-
-
 #view of form to add items
 def create_item(request):
     form = ItemForm(request.POST or None)
@@ -59,6 +57,18 @@ def create_item(request):
         return redirect('food:index')
 
     return render(request,'food/item-form.html',{'form':form})
+
+# This is a class based view for create item
+class CreateItem(CreateView):
+    model = Item
+    fields = ['item_name', 'item_desc', 'item_price', 'item_image']
+    template_name = 'food/item-form.html'
+
+    def form_valid(self, form):
+        form.instance.user_name = self.request.user
+        return super().form_valid(form)
+
+
 
 
 def update_item(request, id):
