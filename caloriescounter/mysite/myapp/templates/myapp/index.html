@@ -3,17 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-    <form method="POST">
-          {% csrf_token %}
-          <select name="food_consumed" id="food_consumed">
-              {% for food in foods %}
-              <option value="{{food.name}}">{{food.name}}</option>
-              {% endfor %}
-          </select>
-        <button type="submit">Add</button>
-    </form>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form method="POST">
+                    <div class="form-group row">
+                         {% csrf_token %}
+                        <label class="col-md-2">
+                           <b> Select Food to Add</b>
+                        </label>
+                          <select class="col-md-6 form-control" name="food_consumed" id="food_consumed">
+                              {% for food in foods %}
+                              <option value="{{food.name}}">{{food.name}}</option>
+                              {% endfor %}
+                          </select>
+                        <button class="btn btn-success" type="submit">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
     {% for c in consumed_food %}
         {{c.food_consumed.name}} --> {{c.food_consumed.carbs}} --> {{c.food_consumed.protein}} --> {{c.food_consumed.fats}} --> {{c.food_consumed.calories}} </br>
     {% endfor %}
