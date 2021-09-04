@@ -5,13 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-<form action="">
-  {% csrf_token %}
-  <select name="" id="">
-      {% for food in foods %}
-      <option value="{{food.name}}">{{food.name}}</option>
-      {% endfor %}
-  </select>
-</form>
+    <form method="POST">
+          {% csrf_token %}
+          <select name="food_consumed" id="food_consumed">
+              {% for food in foods %}
+              <option value="{{food.name}}">{{food.name}}</option>
+              {% endfor %}
+          </select>
+        <button type="submit">Add</button>
+    </form>
 </body>
 </html>
