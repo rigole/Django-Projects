@@ -123,14 +123,20 @@
     document.getElementsByClassName("progress-bar")[0].setAttribute("style", "width:" + calPer + "%")
 
 
-    var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
+    const total = carbs + protein + fats
+    const carbsP = Math.round((carbs/total)*100)
+    const proteinP = Math.round((protein/total)*100)
+    const fatsP = Math.round((fats/total)*100)
+
+
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
         labels: ['Carbs', 'Protein', 'Fats'],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [carbsP, proteinP, fatsP],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
